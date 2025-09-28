@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+.expo-shared/
+dist/
+build/
+*.log
+.env
+.env.*
+.DS_Store
+coverage/
+.expo-dev-tools/
+.sass-cache/
