@@ -5,7 +5,7 @@
       "name": "Expo Web (Chrome)",
       "type": "pwa-chrome",
       "request": "launch",
-      "url": "http://localhost:8081",
+      "url": "http://localhost:19006",
       "webRoot": "${workspaceFolder}",
       "preLaunchTask": "npm: web",
       "postDebugTask": "terminate expo web"
