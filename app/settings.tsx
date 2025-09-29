@@ -32,6 +32,10 @@ const commonErrors = [
     fix: 'Cierra sesiones previas de Metro o usa `npx expo start --port 8082`.'
   },
   {
+    issue: "SyntaxError: Unexpected token '.' en @expo/cli",
+    fix: 'Actualiza Node a la versión 18.18 o superior (usa nvm/Volta en caso necesario), reinstala dependencias y relanza `npx expo start`.'
+  },
+  {
     issue: 'npm ERR! 403 Forbidden',
     fix: 'Configura el proxy corporativo con `npm config set proxy` / `https-proxy` o utiliza un registry autorizado.'
   }

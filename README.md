@@ -78,6 +78,7 @@ assets/           # Iconos y splash por defecto de Expo
 | `BABEL: expo-router/babel is deprecated` | Asegúrate de que `package.json` incluya `"main": "expo-router/entry"`, que `app.config.ts` defina `entryPoint: './node_modules/expo-router/entry'` y que `babel.config.js` solo use `presets: ["babel-preset-expo"]`. Limpia Metro con `npx expo start --clear`; si el mensaje persiste, elimina `node_modules` + `package-lock.json`, ejecuta `npm install` y relanza. |
 | `EADDRINUSE: address already in use 8081` | Cierra sesiones previas de Metro (`Ctrl+C`) o ejecuta `npx expo start --port 8082`. |
 | `ERR_CONNECTION_REFUSED en localhost` | Asegúrate de que Expo Web esté corriendo (`npx expo start --web --port 19006`). Si VS Code abre otra URL, cambia la configuración a `http://localhost:19006` o recarga manualmente esa dirección. |
+| `SyntaxError: Unexpected token '.' en @expo/cli` | Ocurre con versiones antiguas de Node (<18) porque no entienden el código compilado de Expo CLI. Actualiza a Node 18.18+ (recomendado usar nvm o Volta), reinstala dependencias y vuelve a ejecutar `npx expo start`. |
 | `npm ERR! 403 Forbidden` | Configura proxy corporativo (`npm config set proxy` / `https-proxy`) o usa un mirror autorizado. |
 
 ## Próximo paso
