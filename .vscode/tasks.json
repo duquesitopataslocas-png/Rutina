@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: web",
+      "type": "npm",
+      "script": "web",
+      "problemMatcher": {
+        "owner": "expo-web",
+        "fileLocation": "absolute",
+        "pattern": [],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Expo Webpack dev server is running.*",
+          "endsPattern": ".*Project opened!.*"
+        }
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "terminate expo web",
+      "type": "process",
+      "command": "npx",
+      "args": ["expo", "stop"],
+      "problemMatcher": []
+    }
+  ]
+}

@@ -30,6 +30,15 @@ npx expo start --web
 npm run lint
 ```
 
+## Ejecución desde Visual Studio Code (Run and Debug)
+
+1. Abre la carpeta del proyecto en VS Code.
+2. Instala las dependencias (`npm install`).
+3. Abre la vista **Run and Debug** (`Ctrl+Shift+D` o `⇧⌘D`).
+4. Selecciona la configuración **Expo Web (Chrome)** y pulsa **Run** ▶️.
+5. La tarea previa levantará `expo start --web` en segundo plano y, cuando esté listo, se abrirá una pestaña de Chrome apuntando a `http://localhost:8081`.
+6. Para detener todo, detén la depuración en VS Code; se ejecutará automáticamente la tarea `terminate expo web` para cerrar Metro.
+
 ### Si Expo Go muestra pantalla roja por `expo-router/babel`
 
 1. Abre `package.json` y confirma que exista la línea `"main": "expo-router/entry"`.
