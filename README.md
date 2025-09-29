@@ -50,7 +50,7 @@ npm run lint
 
 1. Inicia `npx expo start` (o `npx expo start --web` para el navegador).
 2. Abre la app en Expo Go, un emulador o el navegador.
-3. Verifica que en Home aparezca el titular **“Rutinas inteligentes para kinesiólogos”** y el botón **“Abrir guía rápida”**.
+3. Verifica que en Home aparezca el titular **“Rutinas inteligentes para kinesiólogos”** y el botón **“Ir a Ajustes”**.
 4. Pulsa el botón y confirma que navega a **Settings**, donde se muestran los pasos de instalación, la prueba mínima y la tabla de errores.
 5. Si no aparece ninguna pantalla roja y puedes volver con el gesto de navegación, la base quedó lista para continuar con Supabase.
 
