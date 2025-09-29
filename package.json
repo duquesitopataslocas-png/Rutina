@@ -4,6 +4,7 @@
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
+    "preinstall": "node ./scripts/check-node.cjs",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
