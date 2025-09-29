@@ -52,7 +52,7 @@ assets/           # Iconos y splash por defecto de Expo
 
 | Problema | Solución |
 | --- | --- |
-| `BABEL: expo-router/babel is deprecated` | Usa solo `presets: ["babel-preset-expo"]` en `babel.config.js` (ya aplicado) y reinstala dependencias. |
+| `BABEL: expo-router/babel is deprecated` | Confirma que `babel.config.js` solo tenga `presets: ["babel-preset-expo"]` (ya aplicado). Luego limpia caché con `npx expo start --clear`, borra `node_modules` y `package-lock.json` si persiste, y ejecuta `npm install` nuevamente antes de relanzar Metro. |
 | `EADDRINUSE: address already in use 8081` | Cierra sesiones previas de Metro (`Ctrl+C`) o ejecuta `npx expo start --port 8082`. |
 | `npm ERR! 403 Forbidden` | Configura proxy corporativo (`npm config set proxy` / `https-proxy`) o usa un mirror autorizado. |
 
