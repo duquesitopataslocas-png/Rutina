@@ -30,6 +30,22 @@ npx expo start --web
 npm run lint
 ```
 
+### Si Expo Go muestra pantalla roja por `expo-router/babel`
+
+1. Abre `package.json` y confirma que exista la línea:
+   ```json
+   "main": "expo-router/entry"
+   ```
+2. Abre `babel.config.js` y verifica que solo tenga:
+   ```js
+   presets: ['babel-preset-expo']
+   ```
+3. Limpia la caché de Metro:
+   ```bash
+   npx expo start --clear
+   ```
+4. Si el error persiste, elimina `node_modules` y `package-lock.json`, luego ejecuta `npm install` antes de volver a iniciar Expo.
+
 ## Prueba visual rápida
 
 1. Inicia `npx expo start` (o `npx expo start --web` para el navegador).
@@ -52,7 +68,7 @@ assets/           # Iconos y splash por defecto de Expo
 
 | Problema | Solución |
 | --- | --- |
-| `BABEL: expo-router/babel is deprecated` | Confirma que `babel.config.js` solo tenga `presets: ["babel-preset-expo"]` (ya aplicado). Luego limpia caché con `npx expo start --clear`, borra `node_modules` y `package-lock.json` si persiste, y ejecuta `npm install` nuevamente antes de relanzar Metro. |
+| `BABEL: expo-router/babel is deprecated` | Asegúrate de que `package.json` incluya `"main": "expo-router/entry"` y que `babel.config.js` solo tenga `presets: ["babel-preset-expo"]`. Luego limpia Metro con `npx expo start --clear`; si el mensaje persiste, elimina `node_modules` + `package-lock.json`, ejecuta `npm install` y relanza. |
 | `EADDRINUSE: address already in use 8081` | Cierra sesiones previas de Metro (`Ctrl+C`) o ejecuta `npx expo start --port 8082`. |
 | `npm ERR! 403 Forbidden` | Configura proxy corporativo (`npm config set proxy` / `https-proxy`) o usa un mirror autorizado. |
 

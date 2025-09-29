@@ -19,7 +19,7 @@ const quickChecks = [
 const commonErrors = [
   {
     issue: 'BABEL: expo-router/babel is deprecated',
-    fix: 'Verifica que `babel.config.js` solo tenga `presets: ["babel-preset-expo"]`, limpia Metro con `npx expo start --clear` y reinstala dependencias si el mensaje persiste.'
+    fix: 'Asegúrate de que `package.json` declare `"main": "expo-router/entry"` y que `babel.config.js` solo use `presets: ["babel-preset-expo"]`. Luego ejecuta `npx expo start --clear`; si sigue, borra `node_modules`, reinstala con `npm install` y relanza.'
   },
   {
     issue: 'EADDRINUSE 8081',
