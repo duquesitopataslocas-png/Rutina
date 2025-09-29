@@ -1,12 +1,12 @@
 # KineFlow
 
-Base móvil y web construida con Expo Router, TypeScript y NativeWind. Iteración 1 lista para demos: una Home rica en información (selector Coach/Cliente, resumen dinámico y flujo diario) y Settings con guía contextual, checklist QA y troubleshooting actualizado.
+Base Expo + React Native + TypeScript lista para comenzar el MVP de rutinas inteligentes para kinesiólogos.
 
 ## Requisitos previos
 
 - Node.js 18 o superior
 - npm 9+ (o Yarn 1.x)
-- Expo CLI (incluido al usar `npx expo`)
+- Expo CLI (se instala automáticamente al usar `npx expo`)
 
 ## Instalación
 
@@ -20,37 +20,31 @@ npm install
 ## Scripts útiles
 
 ```bash
-# Arrancar el bundler (abre Metro y genera un QR)
+# Arrancar el bundler (Metro) con menú interactivo
 npx expo start
 
-# Ejecutar la versión web (Chrome/Edge/Firefox)
+# Ejecutar la versión web en Chrome/Edge/Firefox
 npx expo start --web
 
-# Lint opcional
+# Linter opcional una vez instaladas las dependencias
 npm run lint
-
-# Formatear código
-npm run format
 ```
 
 ## Prueba visual rápida
 
-1. Ejecuta `npx expo start` (o `npx expo start --web` para Chrome).
-2. Abre la app con Expo Go, emulador o navegador.
-3. En Home alterna entre **Coach** y **Cliente** y revisa que cambie el gradiente, el copy y los focos principales.
-4. Activa/desactiva las acciones rápidas; el bloque “Resumen inmediato” debe enumerar las automaciones encendidas.
-5. Desplázate para ver “Flujo diario” y “Módulos clave”; confirma que el contenido corresponde al rol actual.
-6. Pulsa “Ver guía de instalación y despliegue” y, en Settings, cambia entre Mobile/Web/Emulador para ver pasos y herramientas dinámicas.
-
-Si ves todos los bloques y no aparece ninguna pantalla roja, la base está lista.
+1. Inicia `npx expo start` (o `npx expo start --web` para el navegador).
+2. Abre la app en Expo Go, un emulador o el navegador.
+3. Verifica que en Home aparezca el titular **“Rutinas inteligentes para kinesiólogos”** y el botón **“Abrir guía rápida”**.
+4. Pulsa el botón y confirma que navega a **Settings**, donde se muestran los pasos de instalación, la prueba mínima y la tabla de errores.
+5. Si no aparece ninguna pantalla roja y puedes volver con el gesto de navegación, la base quedó lista para continuar con Supabase.
 
 ## Estructura actual
 
 ```
 app/
   _layout.tsx     # Stack principal con rutas Home y Settings
-  index.tsx       # Home mejorada: gradiente por rol, flujo diario y acciones interactivas
-  settings.tsx    # Guía de despliegue con checklist, tooling y troubleshooting
+  index.tsx       # Presentación inicial con checklist para coach y cliente
+  settings.tsx    # Guía de instalación, prueba rápida y errores comunes
 assets/           # Iconos y splash por defecto de Expo
 ```
 
@@ -58,12 +52,10 @@ assets/           # Iconos y splash por defecto de Expo
 
 | Problema | Solución |
 | --- | --- |
-| `TransformError: expo-router/babel is deprecated` | Usa solo `babel-preset-expo` en `babel.config.js` (ya aplicado en este repo) y reinstala dependencias con `npm install`. |
-| `EADDRINUSE: address already in use 8081` | Cierra sesiones previas de Metro (`Ctrl+C`) o usa `npx expo start --port 8082`. |
-| App en Expo Go o web queda en blanco | Ejecuta `expo r -c` para limpiar caché y reinstala dependencias. |
-| Clases Tailwind no aplican (web) | Asegúrate de tener `global.css` importado en `app/_layout.tsx` y reinicia el bundler con `npx expo start --web`. |
-| `npm ERR! 403 Forbidden` al instalar | Configura el proxy corporativo con `npm config set proxy` / `https-proxy` o usa un mirror corporativo. |
+| `BABEL: expo-router/babel is deprecated` | Usa solo `presets: ["babel-preset-expo"]` en `babel.config.js` (ya aplicado) y reinstala dependencias. |
+| `EADDRINUSE: address already in use 8081` | Cierra sesiones previas de Metro (`Ctrl+C`) o ejecuta `npx expo start --port 8082`. |
+| `npm ERR! 403 Forbidden` | Configura proxy corporativo (`npm config set proxy` / `https-proxy`) o usa un mirror autorizado. |
 
 ## Próximo paso
 
-En la siguiente iteración integraremos Supabase Auth (magic link) y comenzaremos a modelar los flujos de coach y cliente con almacenamiento offline.
+Siguiente iteración: integrar Supabase (Auth + Postgres) para gestionar usuarios, clientes y rutinas, manteniendo cache offline con React Query + AsyncStorage.
