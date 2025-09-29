@@ -40,40 +40,38 @@ const clientPreview = [
 export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-slate-950">
-      <StatusBar style="light" />
-      <ScrollView
-        className="flex-1"
-        contentContainerClassName="px-6 pb-24 pt-12"
-        showsVerticalScrollIndicator={false}
-      >
-        <View className="space-y-6">
-          <View className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300/80">
-              KineFlow · MVP
-            </Text>
-            <Text className="mt-4 text-3xl font-bold text-white">Rutinas inteligentes para kinesiólogos</Text>
-            <Text className="mt-3 text-base leading-6 text-slate-200">
-              Administra clientes, diseña programas completos y recibe el feedback de cada sesión desde un mismo lugar.
-            </Text>
-            <Link href="/settings" asChild>
-              <Pressable className="mt-6 items-center rounded-full bg-emerald-400 px-6 py-3">
-                <Text className="text-base font-semibold text-slate-950">Abrir guía rápida</Text>
-              </Pressable>
-            </Link>
+        <StatusBar style="light" />
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+          <View className="px-6 pb-24 pt-12">
+            <View className="space-y-6">
+              <View className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <Text className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300/80">
+                  KineFlow · MVP
+                </Text>
+                <Text className="mt-4 text-3xl font-bold text-white">Rutinas inteligentes para kinesiólogos</Text>
+                <Text className="mt-3 text-base leading-6 text-slate-200">
+                  Administra clientes, diseña programas completos y recibe el feedback de cada sesión desde un mismo lugar.
+                </Text>
+                <Link href="/settings" asChild>
+                  <Pressable className="mt-6 items-center rounded-full bg-emerald-400 px-6 py-3">
+                    <Text className="text-base font-semibold text-slate-950">Abrir guía rápida</Text>
+                  </Pressable>
+                </Link>
+              </View>
+
+              <BulletSection title="Lo que tendrás como coach" accentColor="#34d399" bullets={coachChecklist} />
+
+              <BulletSection title="Vista previa para tus clientes" accentColor="#38bdf8" bullets={clientPreview} />
+
+              <View className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <Text className="text-lg font-semibold text-white">Siguiente iteración</Text>
+                <Text className="mt-3 text-base leading-6 text-slate-200">
+                  Integraremos Supabase con login por magic link, almacenaremos rutinas y feedback, y añadiremos modo offline con AsyncStorage.
+                </Text>
+              </View>
+            </View>
           </View>
-
-          <BulletSection title="Lo que tendrás como coach" accentColor="#34d399" bullets={coachChecklist} />
-
-          <BulletSection title="Vista previa para tus clientes" accentColor="#38bdf8" bullets={clientPreview} />
-
-          <View className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <Text className="text-lg font-semibold text-white">Siguiente iteración</Text>
-            <Text className="mt-3 text-base leading-6 text-slate-200">
-              Integraremos Supabase con login por magic link, almacenaremos rutinas y feedback, y añadiremos modo offline con AsyncStorage.
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
     </SafeAreaView>
   );
 }
