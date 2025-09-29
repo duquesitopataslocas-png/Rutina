@@ -5,6 +5,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   name: 'Rutina Coach',
   slug: 'rutina-coach',
   version: '0.1.0',
+  entryPoint: './node_modules/expo-router/entry',
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'light',
